@@ -33,3 +33,4 @@ Lab 4 – Privileged Identity Management (PIM)
 	•	Activated the role just-in-time with a documented justification
 	•	Verified activation in active assignments with time-bound access
 	•	Demonstrated least-privilege access principles through JIT activation
+	• Created and configured a time-bound Access Review for the Security Reader role with designated reviewer
