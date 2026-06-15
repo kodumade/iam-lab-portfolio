@@ -16,6 +16,20 @@ Lab 2 – User Provisioning & Deprovisioning
 	•	Assigned user to enterprise application (IAM SAML Lab App)
 	•	Removed application assignment and disabled account to simulate off-boarding
 
-Environment: Microsoft Azure/Microsoft Entra ID Free Their 
+Environment: Microsoft Azure/Microsoft Entra ID P2 Trial 
 
 Related Certifications: SC-300 Microsoft Identity and Access Administrator, CompTIA Security+
+
+Lab 3 – Conditional Access
+
+	•	Created a Conditional Access policy named “Require MFA – All Users”
+	•	Scoped policy to all users and all cloud apps
+	•	Set grant control to require multifactor authentication
+	•	Enabled policy to enforced state
+
+Lab 4 – Privileged Identity Management (PIM)
+
+	•	Configured Security Reader role as an eligible assignment in PIM
+	•	Activated the role just-in-time with a documented justification
+	•	Verified activation in active assignments with time-bound access
+	•	Demonstrated least-privilege access principles through JIT activation
