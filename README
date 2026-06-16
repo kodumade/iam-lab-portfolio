@@ -34,3 +34,9 @@ Lab 4 – Privileged Identity Management (PIM)
 	•	Verified activation in active assignments with time-bound access
 	•	Demonstrated least-privilege access principles through JIT activation
 	• Created and configured a time-bound Access Review for the Security Reader role with designated reviewer
+
+	Lab 5 – PowerShell Identity Automation
+
+	•	Wrote a PowerShell provisioning script (New-HireProvisioning.ps1) to automate new hire AD user creation, OU placement, security group assignment, and account enablement following least-privilege principles
+	•	Wrote a PowerShell deprovisioning script (Remove-DepartingUser.ps1) to automate offboarding by disabling accounts, removing all group memberships, relocating users to a Disabled OU, and resetting passwords
+	•	Scripts simulate a real enterprise IAM workflow covering the full identity lifecycle from onboarding to offboarding
