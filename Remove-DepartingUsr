@@ -1,0 +1,30 @@
+# User Offboarding / Deprovisioning Script
+# Author: Kolawole Odumade
+# Purpose: Automates offboarding workflow aligned with least-privilege and access governance principles
+
+# Define departing user
+$Username = "john.doe"
+$DisabledOU = "OU=Disabled,OU=THM,DC=thmredteam,DC=com"
+
+# Step 1 - Disable the account
+Disable-ADAccount -Identity $Username -Verbose
+
+# Step 2 - Remove from all security groups
+$Groups = Get-ADPrincipalGroupMembership -Identity $Username | 
+    Where-Object { $_.Name -ne "Domain Users" }
+
+foreach ($Group in $Groups) {
+    Remove-ADGroupMember -Identity $Group.Name -Members $Username -Confirm:$false -Verbose
+    Write-Host "Removed $Username from $($Group.Name)" -ForegroundColor Yellow
+}
+
+# Step 3 - Move account to Disabled OU
+Move-ADObject -Identity (Get-ADUser $Username).DistinguishedName `
+    -TargetPath $DisabledOU -Verbose
+
+# Step 4 - Reset password to random value
+$NewPassword = ConvertTo-SecureString ([System.Web.Security.Membership]::GeneratePassword(16,2)) `
+    -AsPlainText -Force
+Set-ADAccountPassword -Identity $Username -NewPassword $NewPassword -Verbose
+
+Write-Host "User $Username has been successfully offboarded." -ForegroundColor Green
